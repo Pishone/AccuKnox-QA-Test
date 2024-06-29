@@ -9,6 +9,7 @@ This project is an assigment given by AccuKnox Hiring team. It shows the automat
 - Docker
 - Kubernetes (for deployment)
 - kubectl (Kubernetes CLI)
+- Selenium
 
 ## Installation and Setup
 ### Kubernetes Setup
@@ -23,12 +24,43 @@ This project is an assigment given by AccuKnox Hiring team. It shows the automat
 
 3. **Start Kubernetes Cluster**:
    - You can start a local Kubernetes cluster using minikube by
-    '''bash
+    ```bash
         minikube start
-    '''
+    ```
 
 ### Project Setup
 1. **Clone the Repository**:
+    Clone both the sample application repo: 
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+    git clone https://github.com/Vengatesh-m/qa-test.git
+    cd qa-test/Deployment
+    ```
+    And this repo which contains the test scripts:
+    ```bash
+    git clone https://github.com/Pishone/AccuKnox-QA-Test.git
+    cd AccuKnox-QA-Test/
+    ```
+
+2. **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Deploy YAML files**
+    ```bash
+    kubectl apply -f frontend-deployment.yaml
+    kubectl apply -f backend-deployment.yaml
+    ```
+
+4. **Access the Frontend Service**
+   To find the url of the frontend service, use
+    ```bash
+    minikube service frontend-deployment --url
+    ```
+    Access the resulting URL. Verify if the application is working. You'd see the text "Hello from the Backend!"
+
+5. **Running Tests using PyTest**
+    With dependencies installed, application deployed in K8, you can start running selenium tests using PyTest.
+    ```bash
+    pytest -v -s --html=report.html
+    ```
