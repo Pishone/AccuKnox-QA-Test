@@ -1,4 +1,5 @@
 # AccuKnox QA Test
+![AccuKnox](https://github.com/Pishone/AccuKnox-QA-Test/assets/89649425/34e212e3-8cad-4981-a15b-4414a89666b5)
 
 ## Overview
 This project is an assigment given by AccuKnox Hiring team. It shows the automation testing using integration of Selenium (Python) and PyTest deployed in a Kubernetes (Kubectl) cluster. It includes setup instruction for deploying and testing the given web application.
